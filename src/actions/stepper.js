@@ -9,3 +9,8 @@ export function previousStep(currentStep){
     activeStep: Math.max(0, currentStep - 1)
   }}
 }
+
+export function fetchSteps(){
+  const steps =  ['Nosideło', 'Termin', 'Dane kontaktowe'];
+  return { type: "FETCH_STEPS", payload: {steps} }
+}

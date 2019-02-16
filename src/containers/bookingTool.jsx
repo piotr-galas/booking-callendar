@@ -1,15 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { nextStep, previousStep} from '../actions/stepper'
+import { nextStep, previousStep, fetchSteps} from '../actions/stepper'
 import BookingTool from '../components/bookingTool'
 
-
-function getSteps() {
-  return ['Nosideło', 'Termin', 'Dane kontaktowe'];
-}
-
 class HorizontalLinearStepper extends React.Component {
+  componentDidMount(){
+    this.props.fetchSteps();
+  }
   handleNext() {
     this.props.nextStep(this.props.activeStep)
   };
@@ -27,7 +25,7 @@ class HorizontalLinearStepper extends React.Component {
   render() {
     return (
         <BookingTool
-          steps={getSteps()}
+          steps={this.props.steps}
           activeStep={this.props.activeStep}
           handleNext={this.handleNext.bind(this)}
           handlePrevious={this.handlePrevious.bind(this)}
@@ -43,11 +41,13 @@ HorizontalLinearStepper.propTypes = {
 const mapStateToProps = function(state) {
   return {
     activeStep: state.step.activeStep,
+    steps: state.step.steps
   }
 }
 const mapDispatchToProps = {
   nextStep,
-  previousStep
+  previousStep,
+  fetchSteps
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HorizontalLinearStepper);
