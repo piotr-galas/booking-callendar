@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import PersonalForm from './content/personalForm';
-import ChooseItem from './content/itemList';
+import ItemList from './content/itemList';
 import DatePicker from './content/datePicker';
 import Content from '../components/content'
 
@@ -9,7 +9,7 @@ class ContentComponent extends React.Component {
   get componentToRender(){
     switch(this.props.activeStep){
       case 0:
-        return <ChooseItem />
+        return <ItemList />
       case 1:
         return <DatePicker />
       case 2:
