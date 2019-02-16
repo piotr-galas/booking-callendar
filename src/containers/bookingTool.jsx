@@ -6,7 +6,7 @@ import BookingTool from '../components/bookingTool'
 
 
 function getSteps() {
-  return ['Select campaign settings', 'Create an ad group', 'Create an ad'];
+  return ['Nosideło', 'Termin', 'Dane kontaktowe'];
 }
 
 class HorizontalLinearStepper extends React.Component {
