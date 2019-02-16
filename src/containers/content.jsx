@@ -1,12 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux'
 import PersonalForm from './personalForm';
 import ChooseItem from './chooseItem';
 import DatePicker from './datePicker';
+import Content from '../components/content'
 
-class Content extends React.Component {
+class ContentComponent extends React.Component {
   get componentToRender(){
-    const step = 2;
-    switch(step){
+    switch(this.props.activeStep){
       case 0:
         return <ChooseItem />
       case 1:
@@ -18,10 +19,18 @@ class Content extends React.Component {
   render(){
     return (
       <div>
+        <Content>
           {this.componentToRender}
+        </Content>
       </div>
     );
   }
 }
 
-export default Content;
+const mapStateToProps = function(state) {
+  return {
+    activeStep: state.step.activeStep,
+  }
+}
+
+export default connect(mapStateToProps)(ContentComponent);
