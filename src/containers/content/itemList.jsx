@@ -1,11 +1,11 @@
 import React from 'react';
-import ChooseItem from '../components/chooseItem'
+import ItemList from '../../components/content/itemList'
 
 class ChooseItemContainer extends React.Component {
 
   render(){
     return (
-      <ChooseItem/>
+      <ItemList/>
     );
   }
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import PersonalForm from './personalForm';
-import ChooseItem from './chooseItem';
-import DatePicker from './datePicker';
+import PersonalForm from './content/personalForm';
+import ChooseItem from './content/itemList';
+import DatePicker from './content/datePicker';
 import Content from '../components/content'
 
 class ContentComponent extends React.Component {

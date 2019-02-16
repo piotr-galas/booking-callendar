@@ -1,5 +1,5 @@
 import React from 'react';
-import DatePicker from '../components/datePicker'
+import DatePicker from '../../components/content/datePicker'
 
 class DatePickerContainer extends React.Component {
 

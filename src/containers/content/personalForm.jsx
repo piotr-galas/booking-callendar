@@ -1,5 +1,5 @@
 import React from 'react';
-import PersonalForm from '../components/personalForm'
+import PersonalForm from '../../components/content/personalForm'
 
 class PersonalFormContainer extends React.Component {
 

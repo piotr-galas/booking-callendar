@@ -5,7 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
-import PersonalForm from '../containers/personalForm'
 import Content from '../containers/content'
 
 
