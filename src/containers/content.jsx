@@ -6,7 +6,7 @@ import DatePicker from './content/datePicker';
 import Content from '../components/content'
 
 class ContentComponent extends React.Component {
-  get componentToRender(){
+  componentToRender(){
     switch(this.props.activeStep){
       case 0:
         return <ItemList />
@@ -14,13 +14,15 @@ class ContentComponent extends React.Component {
         return <DatePicker />
       case 2:
         return <PersonalForm />
+      default:
+       return
     }
   }
   render(){
     return (
       <div>
         <Content>
-          {this.componentToRender}
+          {this.componentToRender()}
         </Content>
       </div>
     );

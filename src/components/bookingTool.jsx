@@ -1,38 +1,28 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
-import Typography from '@material-ui/core/Typography';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Content from '../containers/content'
+import Paper from '@material-ui/core/Paper';
 
 const styles = theme => ({
   root: {
-    width: '90%',
+    ...theme.mixins.gutters(),
+    paddingTop: theme.spacing.unit * 2,
+    paddingBottom: theme.spacing.unit * 2,
   },
   button: {
     marginRight: theme.spacing.unit,
   },
-  instructions: {
-    marginTop: theme.spacing.unit,
-    marginBottom: theme.spacing.unit,
+  buttonsContainer: {
+    marginTop: theme.spacing.unit * 2,
+    marginBottom: theme.spacing.unit * 2,
   },
 
 });
 
-function getStepContent(step) {
-  switch (step) {
-    case 0:
-      return 'Select campaign settings...';
-    case 1:
-      return 'What is an ad group anyways?';
-    case 2:
-      return 'This is the bit I really care about!';
-    default:
-      return 'Unknown step';
-  }
-}
 
 class StepperComponent extends Component {
   render() {
@@ -41,7 +31,7 @@ class StepperComponent extends Component {
     const { steps } = this.props;
 
     return (
-      <div className={classes.root}>
+      <Paper className={classes.root} elevation={1}>
         <Stepper activeStep={activeStep}>
           {steps.map((label, index) => {
             return (
@@ -53,8 +43,7 @@ class StepperComponent extends Component {
         </Stepper>
         <Content />
 
-        <div>
-          <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+        <div className={classes.buttonsContainer}>
           <div>
             <Button
               disabled={activeStep === 0}
@@ -65,6 +54,7 @@ class StepperComponent extends Component {
             </Button>
 
             <Button
+              disabled={activeStep === 0}
               variant="contained"
               color="primary"
               onClick={this.props.handleNext}
@@ -74,7 +64,7 @@ class StepperComponent extends Component {
             </Button>
           </div>
         </div>
-      </div>
+      </Paper>
     );
   }
 }

@@ -5,9 +5,15 @@ import { withStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 
 
+
 const styles = theme => ({
   root: {
     flexGrow: 1,
+  },
+  stepTitle: {
+    marginTop: theme.spacing.unit * 4,
+    marginBottom: theme.spacing.unit * 2,
+
   },
   paper: {
     height: 140,
@@ -33,10 +39,10 @@ class ItemList extends React.Component {
     const {classes} = this.props
     return (
       <div>
-        <Typography component="h2" variant="h5">
-          Wybirz przedmiot który chcesz wypozyczyc
+        <Typography component="h2" variant="h4" className={classes.stepTitle}>
+          Wybierz przedmiot który chcesz wypożyczyć
         </Typography>
-        <Grid container className={classes.root} spacing={16} justify="center" direction="row">
+        <Grid container className={classes.root} spacing={32} justify="center" direction="row">
           {this.renderItems()}
         </Grid>
     </div>
