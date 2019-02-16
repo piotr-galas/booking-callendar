@@ -3,7 +3,7 @@ const items = [
      id: 1,
      name: 'Deuter',
      image: "https://wypozycz-nosidelko.pl/wp-content/themes/alizee/images/deuter-comfort-kid-3-nosidelko.jpg",
-     description: 'Najlepsze nosidełko na rynku',
+     description: 'Najlepsze nosidełko na rynku dla dzieci siedzących',
  },
  {
     id: 2,
