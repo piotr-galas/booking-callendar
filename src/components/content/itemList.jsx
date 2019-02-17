@@ -13,7 +13,6 @@ const styles = theme => ({
   stepTitle: {
     marginTop: theme.spacing.unit * 4,
     marginBottom: theme.spacing.unit * 2,
-
   },
   paper: {
     height: 140,
@@ -28,8 +27,8 @@ class ItemList extends React.Component {
   renderItems(){
     return this.props.items.map(item =>{
        return (
-         <Grid key={item.id} item xs={3}>
-           <Item item={item}/>
+         <Grid key={item.id} onClick={() => this.props.handleSelectItem(item)} item xs={3}>
+           <Item item={item} />
          </Grid>
        )
     })

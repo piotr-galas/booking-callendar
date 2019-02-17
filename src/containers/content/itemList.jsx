@@ -1,6 +1,6 @@
 import React from 'react';
 import ItemList from '../../components/content/itemList';
-import { fetchItems } from '../../actions/item';
+import { fetchItems, selectItem } from '../../actions/item';
 import { connect } from 'react-redux';
 
 class ChooseItemContainer extends React.Component {
@@ -8,9 +8,16 @@ class ChooseItemContainer extends React.Component {
     this.props.fetchItems();
   }
 
+  handleSelectItem(item){
+    this.props.selectItem(item)
+  }
+
   render(){
     return (
-      <ItemList items={ this.props.items }/>
+      <ItemList
+        items={ this.props.items }
+        handleSelectItem={ this.handleSelectItem.bind(this)}
+      />
     );
   }
 }
@@ -23,5 +30,6 @@ const mapStateToProps = function(state) {
 
 const mapDispatchToProps = {
   fetchItems,
+  selectItem,
 }
 export default connect(mapStateToProps, mapDispatchToProps)(ChooseItemContainer);

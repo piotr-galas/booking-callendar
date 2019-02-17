@@ -1,3 +1,4 @@
+import {nextStep} from './stepper'
 const items = [
   {
      id: 1,
@@ -21,4 +22,11 @@ const items = [
 
 export function fetchItems(){
   return {type: 'FETCH_ITEMS', payload: {items}}
+}
+
+export function selectItem(item){
+  return (dispatch) => {
+    dispatch({type: 'SELECT_ITEM', payload: {item_id: item.id}})
+    dispatch(nextStep(0))
+  }
 }
