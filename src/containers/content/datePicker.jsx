@@ -1,13 +1,31 @@
 import React from 'react';
-import DatePicker from '../../components/content/datePicker'
+import DatePickerComponent from '../../components/content/datePicker'
+import { connect } from 'react-redux'
+import { selectRange } from '../../actions/dateRange'
 
 class DatePickerContainer extends React.Component {
+  handleSelect(range){
+    this.props.selectRange(range)
+  }
 
   render(){
-    return (
-      <DatePicker />
-    );
+		return (
+      <DatePickerComponent
+        handleSelect={this.handleSelect.bind(this)}
+        ranges={[this.props.range]}
+        disabledDates={[]}
+      />
+		)
+	}
+
+}
+const mapDispatchToProps = {
+  selectRange
+}
+const mapStateToProps = function(state){
+  return {
+    range: state.rangePicker
   }
 }
 
-export default DatePickerContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(DatePickerContainer);
