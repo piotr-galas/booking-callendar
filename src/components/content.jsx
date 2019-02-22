@@ -1,7 +1,9 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import { withStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 
-function Content(props) {
+function PaperSheet(props) {
   return (
     <div>
       <Divider />
@@ -10,4 +12,8 @@ function Content(props) {
   );
 }
 
-export default Content;
+PaperSheet.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default PaperSheet;

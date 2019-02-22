@@ -1,7 +1,9 @@
 const defaultRange = {
-  startDate: new Date(),
-  endDate: new Date(),
-  key: 'selection',
+  selection: {
+    startDate: new Date(),
+    endDate: new Date(),
+    key: 'selection'
+  }
 }
 
 

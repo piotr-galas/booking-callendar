@@ -8,13 +8,13 @@ const items = [
  },
  {
     id: 2,
-    name: 'Tula Standart',
+    name: 'Tula Standard',
     image: "https://wypozycz-nosidelko.pl/wp-content/themes/alizee/images/tula-nosidelko-dla-dzieci.jpg",
     description: 'Nosidełko ergonomiczne dla dzieci od 4-10kg',
  },
  {
     id: 3,
-    name: 'Tula Todler',
+    name: 'Tula Toddler',
     image: "https://wypozycz-nosidelko.pl/wp-content/themes/alizee/images/chusta-tkana-do-noszenia.jpg",
     description: 'Nosidełko ergonomiczne dla troche starszych dzieci',
  },

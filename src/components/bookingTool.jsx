@@ -41,6 +41,9 @@ class StepperComponent extends Component {
             );
           })}
         </Stepper>
+        <Paper className={classes.root} elevation={1}>
+          siemanko
+        </Paper>
         <Content />
 
         <div className={classes.buttonsContainer}>
