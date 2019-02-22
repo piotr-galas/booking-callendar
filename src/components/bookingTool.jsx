@@ -3,8 +3,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
-import Button from '@material-ui/core/Button';
 import Content from '../containers/content'
+import NavigationButtons from '../containers/navigationButtons'
 import Paper from '@material-ui/core/Paper';
 
 const styles = theme => ({
@@ -45,28 +45,8 @@ class StepperComponent extends Component {
           siemanko
         </Paper>
         <Content />
+        <NavigationButtons />
 
-        <div className={classes.buttonsContainer}>
-          <div>
-            <Button
-              disabled={activeStep === 0}
-              onClick={this.props.handlePrevious}
-              className={classes.button}
-            >
-              Back
-            </Button>
-
-            <Button
-              disabled={activeStep === 0}
-              variant="contained"
-              color="primary"
-              onClick={this.props.handleNext}
-              className={classes.button}
-            >
-              {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-            </Button>
-          </div>
-        </div>
       </Paper>
     );
   }
