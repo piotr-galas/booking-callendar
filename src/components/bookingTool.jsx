@@ -5,6 +5,7 @@ import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Content from '../containers/content'
 import NavigationButtons from '../containers/navigationButtons'
+import Summary from '../containers/summary'
 import Paper from '@material-ui/core/Paper';
 
 const styles = theme => ({
@@ -41,12 +42,9 @@ class StepperComponent extends Component {
             );
           })}
         </Stepper>
-        <Paper className={classes.root} elevation={1}>
-          siemanko
-        </Paper>
+        <Summary />
         <Content />
         <NavigationButtons />
-
       </Paper>
     );
   }
