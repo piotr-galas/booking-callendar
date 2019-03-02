@@ -31,18 +31,14 @@ class Summary extends React.Component{
   };
 
 
-    handleChanges = () => {
-      this.setState(state => ({ checked: !state.checked }));
-    };
   render(){
     const { classes } = this.props;
     const { selectedDate } = this.state;
-    const { checked } = this.state;
+    const { open } = this.props;
 
     return (
       <div>
-      <Switch checked={checked} onChange={this.handleChanges} aria-label="Collapse" />
-       <Collapse in={checked}>
+       <Collapse in={open}>
         <Paper className={classes.root} elevation={1}>
           <Grid container className={classes.gridContainer} spacing={32} justify="space-around" direction="row">
             <Grid item xs={4}>

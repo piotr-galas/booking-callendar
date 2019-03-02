@@ -1,4 +1,5 @@
 import {nextStep} from './stepper'
+import { openSummary } from './summary'
 const items = [
   {
      id: 1,
@@ -30,6 +31,10 @@ export function fetchItems(){
 export function selectItem(item){
   return (dispatch) => {
     dispatch({type: 'SELECT_ITEM', payload: {item_id: item.id}})
-    dispatch(nextStep(0))
+    dispatch(openSummary())
+    setTimeout(() => {
+      dispatch(nextStep(0))
+    }, 400)
+
   }
 }
