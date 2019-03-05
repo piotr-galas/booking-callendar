@@ -5,7 +5,6 @@ import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Collapse from '@material-ui/core/Collapse';
 import SelectedDates from '../containers/summary/selectedDates'
-import { MuiThemeProvider, createMuiTheme } from "@material-ui/core";
 
 const styles = theme => ({
   root: {
@@ -17,8 +16,6 @@ const styles = theme => ({
     flexGrow: 1,
   }
 })
-
-
 
 class Summary extends React.Component{
 

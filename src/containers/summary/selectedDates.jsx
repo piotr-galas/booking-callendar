@@ -3,14 +3,14 @@ import SelectedDatesComponent from '../../components/summary/selectedDates'
 import { connect } from 'react-redux'
 
 class Summary extends React.Component{
-
   render(){
-    return <SelectedDatesComponent />
+    return <SelectedDatesComponent startDate={this.props.startDate} endDate={this.props.endDate}/>
   }
 }
 const mapStateToProps = function(state){
   return {
-    summary: state.summary
+    startDate: state.rangePicker.selection.startDate,
+    endDate: state.rangePicker.selection.endDate
   }
 }
 

@@ -23,7 +23,6 @@ const mapDispatchToProps = {
   selectRange
 }
 const mapStateToProps = function(state){
-  console.log(state)
   return {
     range: state.rangePicker.selection
   }

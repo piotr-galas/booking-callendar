@@ -4,6 +4,7 @@ import Grid from '@material-ui/core/Grid';
 import DateFnsUtils from '@date-io/date-fns';
 import { withStyles } from '@material-ui/core/styles';
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core";
+import pl from 'date-fns/locale/pl'
 
 
 
@@ -20,45 +21,44 @@ const theme = createMuiTheme({
           marginTop: 0
         }
     },
-  }
-
+  },
+  typography: {
+    useNextVariants: true,
+  },
 })
 
 class Summary extends React.Component{
 
-  state = {
-  selectedDate: new Date('2014-08-18T21:11:54'),
-  checked: false,
-};
+handleDateChange(){
 
-handleDateChange = date => {
-  this.setState({ selectedDate: date });
-};
+}
 
   render(){
     const { classes } = this.props;
-    const { selectedDate } = this.state;
+
 
     return (
-      <MuiThemeProvider  theme={theme}>
-        <MuiPickersUtilsProvider utils={DateFnsUtils}>
+      <MuiThemeProvider  theme={theme} >
+        <MuiPickersUtilsProvider utils={DateFnsUtils} locale={pl}>
           <Grid container className={classes.gridContainer} spacing={16} justify="center" direction="row">
             <Grid item xs={6}>
               <DatePicker
                 margin="normal"
                 label="Data początkowa"
-                value={selectedDate}
+                value={this.props.startDate}
                 onChange={this.handleDateChange}
                 variant="outlined"
+                format="D MMMM"
               />
             </Grid>
             <Grid item xs={6}>
               <DatePicker
                 margin="normal"
                 label="Data końcowa"
-                value={selectedDate}
+                value={this.props.endDate}
                 onChange={this.handleDateChange}
                 variant="outlined"
+                format="D MMMM"
               />
             </Grid>
           </Grid>
