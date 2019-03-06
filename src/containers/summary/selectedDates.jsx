@@ -1,10 +1,24 @@
 import React from 'react'
 import SelectedDatesComponent from '../../components/summary/selectedDates'
 import { connect } from 'react-redux'
+import { selectStartDate, selectEndDate } from '../../actions/dateRange'
 
 class Summary extends React.Component{
+  startDateChange(date){
+    this.props.selectStartDate(date)
+  }
+
+  endDateChange(date){
+    this.props.selectEndDate(date)
+  }
+
   render(){
-    return <SelectedDatesComponent startDate={this.props.startDate} endDate={this.props.endDate}/>
+    return <SelectedDatesComponent
+      startDate={this.props.startDate}
+      endDate={this.props.endDate}
+      handleStartDateChange={this.startDateChange.bind(this)}
+      handleEndDateChange={this.endDateChange.bind(this)}
+    />
   }
 }
 const mapStateToProps = function(state){
@@ -14,4 +28,8 @@ const mapStateToProps = function(state){
   }
 }
 
-export default connect(mapStateToProps)(Summary)
+const mapDispatchToProps = {
+  selectStartDate,
+  selectEndDate,
+}
+export default connect(mapStateToProps, mapDispatchToProps)(Summary)

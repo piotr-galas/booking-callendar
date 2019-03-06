@@ -4,8 +4,10 @@
   "private": true,
   "dependencies": {
     "@date-io/date-fns": "^1.1.0",
-    "@material-ui/core": "^3.9.2",
-    "material-ui-pickers": "^2.2.1",
+    "@date-io/moment": "^1.1.0",
+    "@material-ui/core": "^3.8.4",
+    "material-ui-pickers": "^2.2.4",
+    "moment": "^2.24.0",
     "react": "^16.8.1",
     "react-date-range": "^1.0.0-beta2",
     "react-dom": "^16.8.1",
