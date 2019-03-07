@@ -24,11 +24,11 @@ export default function dispatch(state = defaultRange, action){
     case 'SELECT_START_DATE':
       startDate = action.payload.selection
       endDate = getEndDate(startDate, state)
-      return Object.assign({}, state, {selection: {startDate, endDate}})
+      return Object.assign({}, state, {selection: {startDate, endDate, key: 'selection'}})
     case 'SELECT_END_DATE':
       endDate = action.payload.selection
       startDate = getStartDate(endDate, state)
-      return Object.assign({}, state, {selection: {startDate, endDate}})
+      return Object.assign({}, state, {selection: {startDate, endDate, key: 'selection'}})
     default:
       return state;
   }

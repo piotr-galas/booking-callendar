@@ -18,11 +18,16 @@ const styles = theme => ({
 })
 
 class Summary extends React.Component{
+  selectedItem(){
+    if(this.props.selectedItem){
+      return this.props.selectedItem.full_name
+    }
+  }
 
   render(){
     const { classes } = this.props;
     const { open } = this.props;
-
+    
     return (
       <div>
        <Collapse in={open}>
@@ -30,7 +35,7 @@ class Summary extends React.Component{
           <Grid container className={classes.gridContainer} spacing={32} justify="space-around" direction="row">
             <Grid item xs={4}>
               <Paper className={classes.root} elevation={1}>
-                Deuter Kid Comfoort III
+                {this.selectedItem()}
               </Paper>
             </Grid>
             <Grid item xs={4}>
