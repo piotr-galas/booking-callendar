@@ -4,7 +4,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Collapse from '@material-ui/core/Collapse';
-import SelectedDates from '../containers/summary/selectedDates'
+import SelectedDates from '../containers/summary/selectedDates';
+import SelectedItem from '../containers/summary/selectedItem';
 
 const styles = theme => ({
   root: {
@@ -27,16 +28,14 @@ class Summary extends React.Component{
   render(){
     const { classes } = this.props;
     const { open } = this.props;
-    
+
     return (
       <div>
        <Collapse in={open}>
         <Paper className={classes.root} elevation={1}>
           <Grid container className={classes.gridContainer} spacing={32} justify="space-around" direction="row">
             <Grid item xs={4}>
-              <Paper className={classes.root} elevation={1}>
-                {this.selectedItem()}
-              </Paper>
+              <SelectedItem />
             </Grid>
             <Grid item xs={4}>
               <SelectedDates />

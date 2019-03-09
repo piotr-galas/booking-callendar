@@ -3,7 +3,7 @@ import SelectedDatesComponent from '../../components/summary/selectedDates'
 import { connect } from 'react-redux'
 import { selectStartDate, selectEndDate } from '../../actions/dateRange'
 
-class Summary extends React.Component{
+class SelectedDates extends React.Component{
   startDateChange(date){
     this.props.selectStartDate(date)
   }
@@ -32,4 +32,4 @@ const mapDispatchToProps = {
   selectStartDate,
   selectEndDate,
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Summary)
+export default connect(mapStateToProps, mapDispatchToProps)(SelectedDates)
