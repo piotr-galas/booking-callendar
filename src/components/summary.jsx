@@ -6,6 +6,8 @@ import Grid from '@material-ui/core/Grid';
 import Collapse from '@material-ui/core/Collapse';
 import SelectedDates from '../containers/summary/selectedDates';
 import SelectedItem from '../containers/summary/selectedItem';
+import SelectedPersonalData from '../containers/summary/selectedPersonalData';
+
 
 const styles = theme => ({
   root: {
@@ -19,12 +21,6 @@ const styles = theme => ({
 })
 
 class Summary extends React.Component{
-  selectedItem(){
-    if(this.props.selectedItem){
-      return this.props.selectedItem.full_name
-    }
-  }
-
   render(){
     const { classes } = this.props;
     const { open } = this.props;
@@ -41,9 +37,7 @@ class Summary extends React.Component{
               <SelectedDates />
             </Grid>
             <Grid item xs={4}>
-              <Paper className={classes.root} elevation={1}>
-                Dane:
-              </Paper>
+              <SelectedPersonalData />
             </Grid>
           </Grid>
         </Paper>
