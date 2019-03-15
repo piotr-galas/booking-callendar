@@ -52,6 +52,7 @@ class Summary extends React.Component{
                 onChange={this.handleStartDateChange}
                 variant="outlined"
                 format="D MMMM"
+                onOpen={() => this.props.handleSetStep(1)}
               />
             </Grid>
             <Grid item xs={6}>
@@ -62,6 +63,7 @@ class Summary extends React.Component{
                 onChange={this.handleEndDateChange}
                 variant="outlined"
                 format="D MMMM"
+                onOpen={() => this.props.handleSetStep(1)}
               />
             </Grid>
           </Grid>

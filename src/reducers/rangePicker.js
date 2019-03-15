@@ -19,7 +19,6 @@ export default function dispatch(state = defaultRange, action){
   let startDate
   switch (action.type) {
     case 'SELECT_RANGE':
-      const range = action.payload.selection
       return Object.assign({}, state, action.payload.selection)
     case 'SELECT_START_DATE':
       startDate = action.payload.selection

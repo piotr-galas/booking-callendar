@@ -8,6 +8,8 @@ export default function step(state=defaultState, action){
       return Object.assign({}, state, action.payload)
     case 'FETCH_STEPS':
       return Object.assign({}, state, action.payload)
+    case 'SET_STEP':
+      return Object.assign({}, state, action.payload)
     default:
       return state;
   }

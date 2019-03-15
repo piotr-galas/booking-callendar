@@ -10,6 +10,10 @@ export function previousStep(currentStep){
   }}
 }
 
+export function setStep(step){
+  return {type: "SET_STEP", payload: {activeStep: step}}
+}
+
 export function fetchSteps(){
   const steps =  ['Nosideło', 'Termin', 'Dane kontaktowe'];
   return { type: "FETCH_STEPS", payload: {steps} }

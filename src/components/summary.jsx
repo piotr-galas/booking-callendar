@@ -30,13 +30,13 @@ class Summary extends React.Component{
        <Collapse in={open}>
         <Paper className={classes.root} elevation={1}>
           <Grid container className={classes.gridContainer} spacing={32} justify="space-around" direction="row">
-            <Grid item xs={4}>
-              <SelectedItem />
+            <Grid item xs={4} onClick={() => this.props.handleSetStep(0)}>
+              <SelectedItem  />
             </Grid>
             <Grid item xs={4}>
               <SelectedDates />
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={4} onClick={() => this.props.handleSetStep(2)}>
               <SelectedPersonalData />
             </Grid>
           </Grid>
