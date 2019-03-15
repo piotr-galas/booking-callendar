@@ -8,6 +8,7 @@ const styles = theme => ({
     ...theme.mixins.gutters(),
     paddingTop: theme.spacing.unit * 2,
     paddingBottom: theme.spacing.unit * 2,
+    cursor: 'pointer',
   },
 })
 
@@ -20,7 +21,7 @@ class SelectedItem extends React.Component{
 
   render(){
     const { classes } = this.props;
-    
+
     return (
       <Paper className={classes.root} elevation={1}>
         {this.selectedItem()}
