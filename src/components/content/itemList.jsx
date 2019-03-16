@@ -8,7 +8,7 @@ const styles = theme => ({
   root: {
     flexGrow: 1,
   },
-  stepTitle: {
+  title: {
     marginTop: theme.spacing.unit * 4,
     marginBottom: theme.spacing.unit * 2,
   },
@@ -36,7 +36,7 @@ class ItemList extends React.Component {
     const {classes} = this.props
     return (
       <div>
-        <Typography component="h2" variant="h4" className={classes.stepTitle}>
+        <Typography component="h2" variant="h4" className={classes.title}>
           Wybierz przedmiot który chcesz wypożyczyć
         </Typography>
         <Grid container className={classes.root} spacing={32} justify="center" direction="row">

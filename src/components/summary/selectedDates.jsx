@@ -22,7 +22,7 @@ class Summary extends React.Component{
   }
 
   handleEndDateChange = (date) => {
-    this.props.handleEndDateChange(date.toDate)
+    this.props.handleEndDateChange(date.toDate())
   }
 
   render(){
