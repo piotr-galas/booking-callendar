@@ -1,10 +1,18 @@
 import React from 'react'
-import PersonalFormComponent from '../../components/summary/selectedPersonalData';
+import SelectedPersonalDataComponent from '../../components/summary/selectedPersonalData';
+import { connect } from 'react-redux'
 
-class PersonaForm extends React.Component{
+class SelectedPersonalData extends React.Component{
   render(){
-    return <PersonalFormComponent />
+    return <SelectedPersonalDataComponent
+      personalForm={this.props.personalForm.data}
+    />
   }
 }
 
-export default PersonaForm
+const mapStateToProps = function(state){
+  return {
+    personalForm: state.personalForm
+  }
+}
+export default connect(mapStateToProps)(SelectedPersonalData)

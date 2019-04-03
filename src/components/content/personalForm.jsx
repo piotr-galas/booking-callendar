@@ -5,8 +5,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 
-
-
 const styles = theme => ({
   root: {
     flexGrow: 1,
@@ -27,6 +25,7 @@ const styles = theme => ({
 class PersonalForm extends React.Component {
 
   render(){
+    console.log('ccc',this.props)
     const {classes} = this.props
 
     return (
@@ -35,7 +34,7 @@ class PersonalForm extends React.Component {
         Uzupłnij dane
       </Typography>
       <Grid className={classes.root} container spacing={32} justify="center" direction="row">
-        <Grid item className={classes.item} xs={5} direction="row" justify="space-around">
+        <Grid item className={classes.item} xs={5} >
           <TextField
             required
             id="standard-dense"
@@ -43,6 +42,9 @@ class PersonalForm extends React.Component {
             className={classNames(classes.textField, classes.dense)}
             margin="dense"
             variant="outlined"
+            value={this.props.firstName}
+            name="firstName"
+            onChange={this.props.handleChange}
           />
 
           <TextField
@@ -52,11 +54,14 @@ class PersonalForm extends React.Component {
             className={classNames(classes.textField, classes.dense)}
             margin="dense"
             variant="outlined"
+            value={this.props.lastName}
+            name="lastName"
+            onChange={this.props.handleChange}
           />
         </Grid>
       </Grid>
       <Grid className={classes.root} container spacing={32} justify="center" direction="row">
-        <Grid item className={classes.item} xs={5} direction="row" justify="space-around">
+        <Grid item className={classes.item} xs={5}>
           <TextField
             required
             id="standard-dense"
@@ -64,6 +69,9 @@ class PersonalForm extends React.Component {
             className={classNames(classes.textField, classes.dense)}
             margin="dense"
             variant="outlined"
+            value={this.props.email}
+            name="email"
+            onChange={this.props.handleChange}
           />
 
           <TextField
@@ -73,11 +81,14 @@ class PersonalForm extends React.Component {
             className={classNames(classes.textField, classes.dense)}
             margin="dense"
             variant="outlined"
+            value={this.props.phone}
+            name="phone"
+            onChange={this.props.handleChange}
           />
         </Grid>
       </Grid>
       <Grid className={classes.root} container spacing={32} justify="center" direction="row">
-        <Grid item className={classes.item} xs={5} direction="row" justify="space-around">
+        <Grid item className={classes.item} xs={5}>
           <TextField
             id="standard-textarea"
             label="Uwagi"
@@ -86,6 +97,9 @@ class PersonalForm extends React.Component {
             className={classes.textArea}
             margin="dense"
             variant="outlined"
+            value={this.props.description}
+            name="description"
+            onChange={this.props.handleChange}
           />
         </Grid>
       </Grid>
