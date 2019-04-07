@@ -1,6 +1,6 @@
 import React from 'react';
-import ItemList from '../../components/content/itemList';
-import { fetchItems, selectItem } from '../../actions/item';
+import ItemListProxy from './itemListProxy';
+import { selectItem } from '../../actions/item';
 import { connect } from 'react-redux';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
@@ -17,6 +17,7 @@ const GET_ITEMS = gql`
   }
 `;
 
+
 class ChooseItemContainer extends React.Component {
   handleSelectItem(item){
     this.props.selectItem(item)
@@ -30,7 +31,7 @@ class ChooseItemContainer extends React.Component {
            if (loading || !items.items) {
              return <div>Loading ...</div>;
            }
-          return (<ItemList
+          return (<ItemListProxy
             items={ items.items }
             handleSelectItem={ this.handleSelectItem.bind(this)}
           />)

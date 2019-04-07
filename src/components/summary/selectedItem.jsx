@@ -18,7 +18,7 @@ const styles = theme => ({
 class SelectedItem extends React.Component{
   selectedItem(){
     if(this.props.selectedItem){
-      return this.props.selectedItem.full_name
+      return this.props.selectedItem.fullName
     }
   }
 
