@@ -3,6 +3,9 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 
+import gql from 'graphql-tag';
+import { Query, Mutation } from 'react-apollo';
+
 const styles = theme =>({
   buttonsContainer: {
     marginTop: theme.spacing.unit * 2,
@@ -12,6 +15,7 @@ const styles = theme =>({
     marginLeft: theme.spacing.unit,
   },
 })
+
 
 class NavigationButtons extends React.Component{
   render(){
@@ -36,26 +40,23 @@ class NavigationButtons extends React.Component{
 
     if(activeStep == 2){
       button = (
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={this.props.handleNext}
-          className={classes.button}
-          size="large"
-        >
-          Zarezrwuj
-          <Icon className={classes.rightIcon}>navigate_next</Icon>
-        </Button>
+
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={this.props.handleItemReservation}
+              className={classes.button}
+              size="large"
+            >
+              Zarezrwuj
+              <Icon className={classes.rightIcon}>navigate_next</Icon>
+            </Button>
       )
     }
 
     return(
       <div className={classes.buttonsContainer}>
-        <div>
-          {button}
-
-
-        </div>
+        <div>{button}</div>
       </div>
     )
   }
