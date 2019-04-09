@@ -16,7 +16,6 @@ $lastName: String, $email: String, $phone: String, $itemId: Int
       description: $description
       startDate: $startDate
       endDate: $endDate
-      itemId: $itemId
     },
     borrowerAttributes:{
       firstName: $firstName
@@ -24,6 +23,7 @@ $lastName: String, $email: String, $phone: String, $itemId: Int
       email: $email
       phone: $phone
     },
+    itemId: $itemId
   }){
     borrower{
       firstName
@@ -53,12 +53,10 @@ class NavigationButtons extends React.Component{
       description: this.props.personalForm.description  }}
   }
 
-
   render(){
     return(
       <Mutation mutation={CREATE_RESERVATION}>
         { (itemReservation, {data}) => {
-
           return (<NavigationButtonsComponent
             steps={this.props.steps}
             activeStep={this.props.activeStep}
