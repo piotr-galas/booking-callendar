@@ -28,6 +28,7 @@ class DatePicker extends React.Component {
         onChange={(ranges) => this.props.handleSelect(ranges)}
         disabledDates={this.props.disabledDates}
         direction="horizontal"
+        minDate={new Date()}
         showPreview={false}
         showSelectionPreview={false}
         showMonthAndYearPickers={false}

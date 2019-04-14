@@ -3,7 +3,15 @@ import DatePickerComponent from '../../components/content/datePicker'
 import { connect } from 'react-redux'
 import { selectRange } from '../../actions/dateRange'
 import moment from 'moment'
+import { Query } from 'react-apollo';
+import gql from 'graphql-tag';
+import { format, addDays } from 'date-fns';
 
+const GET_DISABLED_DAYS = gql`
+query($itemId: Int!){
+	reservedDays(itemId:$itemId)
+}
+`;
 
 class DatePickerContainer extends React.Component {
   // formattedRange fixes timezone problem
@@ -15,12 +23,21 @@ class DatePickerContainer extends React.Component {
   }
 
   render(){
+
 		return (
-      <DatePickerComponent
-        handleSelect={this.handleSelect.bind(this)}
-        ranges={[this.props.range]}
-        disabledDates={[]}
-      />
+      <Query query={GET_DISABLED_DAYS} variables={ {itemId: parseInt(this.props.itemId)}}>
+        {({data: reservedDays}, loading) => {
+          if (loading || !reservedDays || !reservedDays.reservedDays) {
+            return <div>Loading ...</div>;
+          }
+
+          return (<DatePickerComponent
+            handleSelect={this.handleSelect.bind(this)}
+            ranges={[this.props.range]}
+            disabledDates={reservedDays.reservedDays}
+          />)
+        }}
+      </Query>
 		)
 	}
 
@@ -30,7 +47,8 @@ const mapDispatchToProps = {
 }
 const mapStateToProps = function(state){
   return {
-    range: state.rangePicker.selection
+    range: state.rangePicker.selection,
+		itemId: state.item.item_id
   }
 }
 

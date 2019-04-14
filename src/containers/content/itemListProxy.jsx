@@ -3,8 +3,6 @@ import ItemList from '../../components/content/itemList';
 import { fetchItems } from '../../actions/item';
 import { connect } from 'react-redux';
 
-
-
 class ItemListProxy extends React.Component {
   componentWillMount() {
     this.props.fetchItems(this.props.items)
