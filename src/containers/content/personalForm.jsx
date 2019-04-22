@@ -7,26 +7,19 @@ import { connect } from 'react-redux';
 class PersonalFormContainer extends React.Component {
   constructor(props){
     super(props)
-    this.state = {
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        description: ""
-    }
     this.handleChange = this.handleChange.bind(this)
   }
 
   handleChange(event){
     event.persist()
-    this.setState({[event.target.name]: event.target.value}, () => this.props.changePersonalData(this.state))
+    this.props.changePersonalData({[event.target.name]: event.target.value})
   }
 
   render(){
     return (
       <PersonalForm
         handleChange={this.handleChange}
-        data={this.state.data}
+        data={this.props.personalForm}
       />
     );
   }
@@ -35,4 +28,11 @@ class PersonalFormContainer extends React.Component {
 const mapDispatchToProps = {
   changePersonalData
 }
-export default connect(null, mapDispatchToProps)(PersonalFormContainer);
+
+const mapStateToProps = function(state) {
+  return {
+    personalForm: state.personalForm
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(PersonalFormContainer);

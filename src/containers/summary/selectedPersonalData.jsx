@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 class SelectedPersonalData extends React.Component{
   render(){
     return <SelectedPersonalDataComponent
-      personalForm={this.props.personalForm.data}
+      personalForm={this.props.personalForm}
     />
   }
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { nextStep, previousStep} from '../actions/stepper'
 import NavigationButtonsComponent from '../components/navigationButtons'
+import {processPersonalDataResponse} from '../actions/personalForm'
 
 import gql from 'graphql-tag';
 import { Query, Mutation } from 'react-apollo';
@@ -27,6 +28,16 @@ $lastName: String, $email: String, $phone: String, $itemId: Int
   }){
     borrower{
       firstName
+      lastName
+      email
+      phone
+      errors
+    }
+    order{
+      description
+      startDate
+      endDate
+      errors
     }
   }
 }
@@ -53,9 +64,15 @@ class NavigationButtons extends React.Component{
       description: this.props.personalForm.description  }}
   }
 
+  handleResponse(data){
+    this.props.processPersonalDataResponse(data)
+  }
+
   render(){
     return(
-      <Mutation mutation={CREATE_RESERVATION}>
+      <Mutation
+        mutation={CREATE_RESERVATION}
+        onCompleted={this.handleResponse.bind(this)}>
         { (itemReservation, {data}) => {
           return (<NavigationButtonsComponent
             steps={this.props.steps}
@@ -74,7 +91,7 @@ class NavigationButtons extends React.Component{
 const mapStateToProps = function(state) {
   return {
     itemId: state.item.item_id,
-    personalForm: state.personalForm.data,
+    personalForm: state.personalForm,
     startDate: state.rangePicker.selection.startDate,
     endDate: state.rangePicker.selection.endDate,
 
@@ -85,6 +102,7 @@ const mapStateToProps = function(state) {
 const mapDispatchToProps = {
   nextStep,
   previousStep,
+  processPersonalDataResponse,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NavigationButtons)

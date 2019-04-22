@@ -32,6 +32,9 @@ class Summary extends React.Component{
           <Grid container className={classes.gridContainer} spacing={16} justify="center" direction="row">
             <Grid item xs={6}>
               <DatePicker
+                error={this.props.errors && !!this.props.errors.startDate}
+
+                helperText={this.props.errors && !!this.props.errors.startDate ? this.props.errors.startDate : ""}
                 margin="normal"
                 label="Data początkowa"
                 value={this.props.startDate}
@@ -43,6 +46,9 @@ class Summary extends React.Component{
             </Grid>
             <Grid item xs={6}>
               <DatePicker
+                error={this.props.errors && !!this.props.errors.endDate}
+                helperText={this.props.errors && !!this.props.errors.endDate ? this.props.errors.endDate : ""}
+
                 margin="normal"
                 label="Data końcowa"
                 value={this.props.endDate}

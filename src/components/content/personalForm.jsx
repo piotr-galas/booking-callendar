@@ -25,7 +25,6 @@ const styles = theme => ({
 class PersonalForm extends React.Component {
 
   render(){
-    console.log('ccc',this.props)
     const {classes} = this.props
 
     return (
@@ -37,24 +36,29 @@ class PersonalForm extends React.Component {
         <Grid item className={classes.item} xs={5} >
           <TextField
             required
+            error={this.props.data.errors && !!this.props.data.errors.firstName}
+            helperText={this.props.data.errors && !!this.props.data.errors.firstName ? this.props.data.errors.firstName : ""}
+
             id="standard-dense"
             label="Imie"
             className={classNames(classes.textField, classes.dense)}
             margin="dense"
             variant="outlined"
-            value={this.props.firstName}
+            value={this.props.data.firstName}
             name="firstName"
             onChange={this.props.handleChange}
           />
 
           <TextField
             required
+            error={this.props.data.errors && !!this.props.data.errors.lastName}
+            helperText={this.props.data.errors && !!this.props.data.errors.lastName ? this.props.data.errors.lastName : ""}
             id="standard-dense"
             label="Nazwisko"
             className={classNames(classes.textField, classes.dense)}
             margin="dense"
             variant="outlined"
-            value={this.props.lastName}
+            value={this.props.data.lastName}
             name="lastName"
             onChange={this.props.handleChange}
           />
@@ -64,24 +68,28 @@ class PersonalForm extends React.Component {
         <Grid item className={classes.item} xs={5}>
           <TextField
             required
+            error={this.props.data.errors && !!this.props.data.errors.email}
+            helperText={this.props.data.errors && !!this.props.data.errors.email ? this.props.data.errors.email : ""}
             id="standard-dense"
             label="Email"
             className={classNames(classes.textField, classes.dense)}
             margin="dense"
             variant="outlined"
-            value={this.props.email}
+            value={this.props.data.email}
             name="email"
             onChange={this.props.handleChange}
           />
 
           <TextField
+            error={this.props.data.errors && !!this.props.data.errors.phone}
+            helperText={this.props.data.errors && !!this.props.data.errors.phone ? this.props.data.errors.phone : ""}
             required
             id="standard-dense"
             label="Telefon"
             className={classNames(classes.textField, classes.dense)}
             margin="dense"
             variant="outlined"
-            value={this.props.phone}
+            value={this.props.data.phone}
             name="phone"
             onChange={this.props.handleChange}
           />
@@ -90,14 +98,16 @@ class PersonalForm extends React.Component {
       <Grid className={classes.root} container spacing={32} justify="center" direction="row">
         <Grid item className={classes.item} xs={5}>
           <TextField
+            error={this.props.data.errors && !!this.props.data.errors.description}
+            helperText={this.props.data.errors && !!this.props.data.errors.description ? this.props.data.errors.description : ""}
             id="standard-textarea"
             label="Uwagi"
             rows="4"
             multiline
-            className={classes.textArea}
+            className={classNames(classes.textArea)}
             margin="dense"
             variant="outlined"
-            value={this.props.description}
+            value={this.props.data.description}
             name="description"
             onChange={this.props.handleChange}
           />

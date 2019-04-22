@@ -20,6 +20,7 @@ class SelectedDates extends React.Component{
 
   render(){
     return <SelectedDatesComponent
+      errors={this.props.orderErrors}
       startDate={this.props.startDate}
       endDate={this.props.endDate}
       handleStartDateChange={this.startDateChange.bind(this)}
@@ -31,7 +32,8 @@ class SelectedDates extends React.Component{
 const mapStateToProps = function(state){
   return {
     startDate: state.rangePicker.selection.startDate,
-    endDate: state.rangePicker.selection.endDate
+    endDate: state.rangePicker.selection.endDate,
+    orderErrors: state.personalForm.errors
   }
 }
 
