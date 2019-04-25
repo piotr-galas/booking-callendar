@@ -11,7 +11,6 @@ const emptyData = {
 export default function dispatch(state=emptyData, action){
   switch (action.type) {
     case 'CHANGE_PERSONAL_DATA':
-    console.log(action.payload)
       return Object.assign({}, state, action.payload.data)
     case "PROCESS_PERSONAL_DATA_RESPONSE":
       const borrower = action.payload.data.reservationForItem.borrower
@@ -23,7 +22,7 @@ export default function dispatch(state=emptyData, action){
       order.errors.map((error) => {
         Object.assign(errors, error)
       } )
-      return Object.assign({}, state, action.payload.data.reservationForItem.borrower, action.payload.data.reservationForItem.order, { errors: errors } )
+      return Object.assign({}, state, borrower, order, { errors: errors } )
 
     default:
       return state;

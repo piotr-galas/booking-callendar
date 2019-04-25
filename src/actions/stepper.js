@@ -18,3 +18,7 @@ export function fetchSteps(){
   const steps =  ['Nosideło', 'Termin', 'Dane kontaktowe'];
   return { type: "FETCH_STEPS", payload: {steps} }
 }
+
+export function displayThankYou(data){
+  return { type: "DISPLAY_THANK_YOU", payload: {data}}
+}

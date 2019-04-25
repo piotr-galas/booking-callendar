@@ -30,15 +30,29 @@ const styles = theme => ({
 });
 
 class StepperComponent extends Component {
+  renderForm(){
+    return (
+      <div>
+        <Steps />
+        <Summary />
+        <Content />
+        <NavigationButtons />
+      </div>
+    )
+  }
+
+  renderThankYou(){
+    return (
+      <div>thank you</div>
+    )
+  }
+
   render() {
     const { classes } = this.props;
     return (
       <MuiThemeProvider  theme={theme} >
         <Paper className={classes.root} elevation={1}>
-          <Steps />
-          <Summary />
-          <Content />
-          <NavigationButtons />
+          {this.props.thankYou ? this.renderThankYou() : this.renderForm() }
         </Paper>
       </ MuiThemeProvider>
     );
