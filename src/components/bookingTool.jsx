@@ -4,6 +4,7 @@ import Content from '../containers/content'
 import NavigationButtons from '../containers/navigationButtons'
 import Summary from '../containers/summary'
 import Steps from '../containers/steps'
+import ThankYou from '../containers/thankYou';
 import Paper from '@material-ui/core/Paper';
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core";
 
@@ -43,7 +44,7 @@ class StepperComponent extends Component {
 
   renderThankYou(){
     return (
-      <div>thank you</div>
+      <ThankYou />
     )
   }
 
