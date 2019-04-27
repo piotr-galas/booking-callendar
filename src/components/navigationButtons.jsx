@@ -3,8 +3,6 @@ import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 
-import gql from 'graphql-tag';
-import { Query, Mutation } from 'react-apollo';
 
 const styles = theme =>({
   buttonsContainer: {
@@ -21,9 +19,8 @@ class NavigationButtons extends React.Component{
   render(){
     const { classes } = this.props;
     const { activeStep } = this.props;
-    const { steps } = this.props;
     let button;
-    if(activeStep == 1){
+    if(activeStep === 1){
       button = (
         <Button
           variant="contained"
@@ -38,7 +35,7 @@ class NavigationButtons extends React.Component{
       )
     }
 
-    if(activeStep == 2){
+    if(activeStep === 2){
       button = (
 
             <Button

@@ -5,7 +5,7 @@ import NavigationButtonsComponent from '../components/navigationButtons'
 import {processPersonalDataResponse} from '../actions/personalForm'
 
 import gql from 'graphql-tag';
-import { Query, Mutation } from 'react-apollo';
+import { Mutation } from 'react-apollo';
 
 const CREATE_RESERVATION = gql`
 mutation($description: String, $startDate: ISO8601DateTime, $endDate: ISO8601DateTime, $firstName: String,

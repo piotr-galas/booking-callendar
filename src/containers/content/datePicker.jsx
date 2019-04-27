@@ -5,7 +5,6 @@ import { selectRange } from '../../actions/dateRange'
 import moment from 'moment'
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
-import { format, addDays } from 'date-fns';
 
 const GET_DISABLED_DAYS = gql`
 query($itemId: Int!){

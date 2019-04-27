@@ -17,10 +17,10 @@ export default function dispatch(state=emptyData, action){
       const order = action.payload.data.reservationForItem.order
       let errors = {}
       borrower.errors.map((error) => {
-        Object.assign(errors, error)
+        return Object.assign(errors, error)
       } )
       order.errors.map((error) => {
-        Object.assign(errors, error)
+        return Object.assign(errors, error)
       } )
       return Object.assign({}, state, borrower, order, { errors: errors } )
 

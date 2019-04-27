@@ -1,7 +1,5 @@
 import {nextStep} from './stepper'
 import { openSummary } from './summary'
-const items = [
-]
 
 export function fetchItems(items){
   return {type: 'FETCH_ITEMS', payload: {items}}
