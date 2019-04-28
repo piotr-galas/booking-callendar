@@ -12,7 +12,7 @@ class PersonalFormContainer extends React.Component {
 
   handleChange(event){
     event.persist()
-    this.props.changePersonalData({[event.target.name]: event.target.value})
+    this.props.changePersonalData({[event.target.name]: event.target.value || event.target.checked})
   }
 
   render(){

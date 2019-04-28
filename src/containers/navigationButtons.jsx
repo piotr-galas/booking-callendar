@@ -9,7 +9,7 @@ import { Mutation } from 'react-apollo';
 
 const CREATE_RESERVATION = gql`
 mutation($description: String, $startDate: ISO8601DateTime, $endDate: ISO8601DateTime, $firstName: String,
-$lastName: String, $email: String, $phone: String, $itemId: Int
+$lastName: String, $email: String, $phone: String, $itemId: Int, $privacy: Boolean
 )
 {
   reservationForItem(input:{
@@ -17,6 +17,7 @@ $lastName: String, $email: String, $phone: String, $itemId: Int
       description: $description
       startDate: $startDate
       endDate: $endDate
+      privacy: $privacy
     },
     borrowerAttributes:{
       firstName: $firstName
@@ -61,7 +62,8 @@ class NavigationButtons extends React.Component{
       lastName: this.props.personalForm.lastName,
       email: this.props.personalForm.email,
       phone: this.props.personalForm.phone,
-      description: this.props.personalForm.description  }}
+      description: this.props.personalForm.description,
+      privacy: this.props.personalForm.privacy }}
   }
 
   handleResponse(data){

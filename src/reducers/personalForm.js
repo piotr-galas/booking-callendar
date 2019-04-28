@@ -4,6 +4,7 @@ const emptyData = {
   email: "",
   phone: "",
   description: "",
+  privacy: false,
   errors:{}
 }
 
