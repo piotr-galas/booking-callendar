@@ -35,7 +35,7 @@ class ThankYou extends React.Component{
         </Typography>
         <Icon className={classes.okIcon}>check</Icon>
         <Typography className={classes.description} variant="h7" component="h7">
-          Na email: {personalForm.email} zostało wysłane potwierdzenie rezerwacji
+          Na email: {personalForm.email} zostało wysłane potwierdzenie rezerwacji.
         </Typography>
       </div>
     )

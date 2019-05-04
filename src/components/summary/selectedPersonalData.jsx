@@ -75,7 +75,7 @@ class SelectedPersonalData extends React.Component{
       this.props.personalForm.phone === "" &&
       this.props.personalForm.description === ""
     ){
-      return  "Imie i nazwisko"
+      return  "Imię i nazwisko"
     }else{
       return (
         <div>

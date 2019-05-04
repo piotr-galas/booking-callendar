@@ -37,11 +37,11 @@ class PersonalForm extends React.Component {
   render(){
     const {classes} = this.props
 
-    const label = ( <div> <span>Akceptuje </span> <Link to={'/terms'}>regulamin</Link> <span> oraz </span> <Link to={'/privacy'}>polityke prywatności</Link> </div> )
+    const label = ( <div> <span>Akceptuje </span> <Link to={'/terms'}>regulamin</Link> <span> oraz </span> <Link to={'/privacy'}>politykę prywatności</Link> </div> )
     return (
       <div>
       <Typography component="h2" variant="h4" className={classes.title}>
-        Uzupłnij dane
+        Uzupełnij dane
       </Typography>
       <Grid className={classes.root} container spacing={32} justify="center" direction="row">
         <Grid item className={classes.item} xs={5} >
@@ -51,7 +51,7 @@ class PersonalForm extends React.Component {
             helperText={this.props.data.errors && !!this.props.data.errors.firstName ? this.props.data.errors.firstName : ""}
 
             id="standard-dense"
-            label="Imie"
+            label="Imię"
             className={classNames(classes.textField, classes.dense)}
             margin="dense"
             variant="outlined"

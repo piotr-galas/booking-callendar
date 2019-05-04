@@ -37,7 +37,7 @@ class ItemList extends React.Component {
     return (
       <div>
         <Typography component="h2" variant="h4" className={classes.title}>
-          Wybierz przedmiot który chcesz wypożyczyć
+          Wybierz przedmiot, który chcesz wypożyczyć
         </Typography>
         <Grid container className={classes.root} spacing={32} justify="center" direction="row">
           {this.renderItems()}

@@ -15,7 +15,7 @@ export function setStep(step){
 }
 
 export function fetchSteps(){
-  const steps =  ['Nosideło', 'Termin', 'Dane kontaktowe'];
+  const steps =  ['Nosidło', 'Termin', 'Dane kontaktowe'];
   return { type: "FETCH_STEPS", payload: {steps} }
 }
 

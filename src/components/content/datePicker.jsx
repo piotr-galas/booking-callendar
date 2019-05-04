@@ -20,7 +20,7 @@ class DatePicker extends React.Component {
     return (
       <div>
       <Typography component="h2" variant="h4" className={classes.title}>
-        Wybierz date
+        Wybierz okres wypożyczenia
       </Typography>
       <DateRange
         locale={pl}
